@@ -1,0 +1,93 @@
+$text-color: #d0d2d6;
+$primary-color: #6659f1;
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  border: 0 solid black;
+  border-radius: 8px;
+  background-color: #404554;
+  word-wrap: break-word;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    transform: translateY(-1rem);
+  }
+
+  & .item-img > img {
+    width: 100%;
+  }
+
+  & .item-info {
+    padding: 1rem;
+
+    & .item-wrapper {
+      display: flex;
+
+      & .item-rating {
+        display: flex;
+
+        & .filledStar {
+          color: #ff9f43;
+        }
+
+        & .outlineStar {
+          color: #babfc7;
+        }
+      }
+
+      & .item-price {
+        margin-left: auto;
+        color: $text-color;
+      }
+    }
+
+    & .item-name {
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0;
+      color: $text-color;
+    }
+    & .item-description {
+      font-size: 0.9rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-top: 0;
+      color: $text-color;
+    }
+  }
+
+  & .action-buttons {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      display: flex;
+      justify-content: center;
+      font-size: inherit;
+      font-weight: 600;
+      padding: 1rem;
+      color: $text-color;
+      outline: none;
+      border: 0;
+      cursor: pointer;
+    }
+
+    & .btn-wishlist {
+      background-color: #161d31;
+    }
+
+    & .btn-add-to-cart,
+    .btn-view-in-cart {
+      text-decoration: none;
+      background-color: $primary-color;
+      line-height: 1rem;
+    }
+
+    & .icon {
+      padding-right: 0.5rem;
+    }
+  }
+}
