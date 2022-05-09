@@ -5,3 +5,10 @@
   row-gap: 1rem;
   column-gap: 1rem;
 }
+
+.list-view {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 2rem;
+}

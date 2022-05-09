@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
+
 import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
 import { BsStarFill, BsStar } from 'react-icons/bs';
-// import { Link } from 'react-router-dom';
 
-import Card from '../../UI/Card';
+import Card from 'components/UI/Card';
 
 import classes from './ItemCard.module.scss';
 
@@ -15,22 +16,25 @@ const ItemCard = (props) => {
   ));
 
   return (
-    <Card className={classes['item-card']}>
-      <div className={classes['item-img']}>
+    <Card className={classes.itemCard}>
+      <div className={classes.itemImg}>
         <img src={require('images/iphone-13-pink.png')} alt="Item Picuture" />
       </div>
-      <div className={classes['item-info']}>
-        <div className={classes['item-wrapper']}>
-          <div className={classes['item-rating']}>
-            {goodRating}
-            {badRating}
-          </div>
-          <div className={classes['item-price']}>RM{props.price}</div>
-        </div>
+      <div className={classes['card-body']}>
         <h6 className={classes['item-name']}>{props.name}</h6>
+        <div className={classes['seller-info']}>
+          <span>By </span>
+          <Link className={classes.seller}>Apple</Link>
+        </div>
+
+        <div className={classes['item-rating']}>
+          {goodRating}
+          {badRating}
+        </div>
         <p className={classes['item-description']}>{props.description}</p>
       </div>
-      <div className={classes['action-buttons']}>
+      <div className={classes.itemOptions}>
+        <div className={classes['item-price']}>RM{props.price}</div>
         <button className={classes['btn-wishlist']}>
           <HiHeart className={classes.icon} />
           <HiOutlineHeart className={classes.icon} />

@@ -1,18 +1,17 @@
-$text-color: #d0d2d6;
-$primary-color: #6659f1;
+@import 'sassStyles/variables';
 
 .item-card {
   display: flex;
   flex-direction: column;
   border: 0 solid black;
   border-radius: 8px;
-  background-color: #404554;
+  background-color: $secondary-color;
   word-wrap: break-word;
   overflow: hidden;
   transition: all 0.3s ease-out;
 
   &:hover {
-    transform: translateY(-1rem);
+    transform: translateY(-0.3rem);
   }
 
   & .item-img > img {
