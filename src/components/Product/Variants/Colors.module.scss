@@ -1,0 +1,57 @@
+@import 'sassStyles/variables';
+
+.variant-list {
+  margin-right: 0.5rem;
+  display: inline-block;
+
+  & .color-option {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 3px;
+  }
+  & .filloption {
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    box-shadow: 0 2px 4px 0 rgb(115 103 240 / 40%);
+  }
+
+  & .bg-primary {
+    background-color: $color-primary;
+  }
+  & .bg-secondary {
+    background-color: $color-secondary;
+  }
+  & .bg-success {
+    background-color: $color-success;
+  }
+  & .bg-danger {
+    background-color: $color-danger;
+  }
+  & .bg-warning {
+    background-color: $color-warning;
+  }
+  & .bg-info {
+    background-color: $color-info;
+  }
+
+  & .br-primary {
+    border-color: $color-primary;
+  }
+  & .br-secondary {
+    border-color: $color-secondary;
+  }
+  & .br-success {
+    border-color: $color-success;
+  }
+  & .br-danger {
+    border-color: $color-danger;
+  }
+  & .br-warning {
+    border-color: $color-warning;
+  }
+  & .br-info {
+    border-color: $color-info;
+  }
+}

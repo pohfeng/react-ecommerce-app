@@ -1,0 +1,30 @@
+@import 'sassStyles/variables.scss';
+
+.carousel {
+  display: flex;
+  color: $text-color;
+  & .slider-content {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-wrap: nowrap;
+
+    & > * {
+      margin-right: 50px;
+    }
+
+    & div:last-child {
+      margin-right: 0;
+    }
+  }
+  & .icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+    & .icon {
+      font-size: 3rem;
+    }
+  }
+}

@@ -277,3 +277,79 @@ export const fetchShopData = () => {
     dispatch(shopActions.SET_ITEMS(DUMMY_DATA));
   };
 };
+
+export const fetchDataDetails = (id) => {
+  return async (dispatch) => {
+    const DUMMY_DATA = {
+      id: 'fd382408-3746-4d17-ac30-73ebea84a4a7',
+      name: 'Apple iPhone 13 (512GB, Pink)',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      price: 1.74,
+      rating: 1,
+      available_unit: 8,
+      image_name: 'iphone-13-pink',
+    };
+
+    dispatch(shopActions.SET_ITEM_DETAILS(DUMMY_DATA));
+  };
+};
+
+export const fetchRelatedProducts = (id) => {
+  return async (dispatch) => {
+    const DUMMY_DATA = [
+      {
+        id: '2d67579b-8fed-47b3-a5a5-8b7931160391',
+        name: 'Apple iPhone 13 (512GB, Pink)',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        price: 1.33,
+        rating: 1,
+        available_unit: 18,
+        image_name: 'iphone-13-pink',
+      },
+      {
+        id: 'f032ff5b-6736-4bc5-bbf5-e618e5f2e195',
+        name: 'Apple iPhone 13 (512GB, Pink)',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        price: 1.56,
+        rating: 5,
+        available_unit: 31,
+        image_name: 'iphone-13-pink',
+      },
+      {
+        id: 'e0be1d37-c947-4e32-987e-7706189fe8cc',
+        name: 'Apple iPhone 13 (512GB, Pink)',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        price: 1.37,
+        rating: 5,
+        available_unit: 97,
+        image_name: 'iphone-13-pink',
+      },
+      {
+        id: 'b30c8819-47fd-445a-ba7d-f29194b1172e',
+        name: 'Apple iPhone 13 (512GB, Pink)',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        price: 1.73,
+        rating: 5,
+        available_unit: 18,
+        image_name: 'iphone-13-pink',
+      },
+      {
+        id: 'fd382408-3746-4d17-ac30-73ebea84a4a7',
+        name: 'Apple iPhone 13 (512GB, Pink)',
+        description:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        price: 1.74,
+        rating: 1,
+        available_unit: 8,
+        image_name: 'iphone-13-pink',
+      },
+    ];
+
+    dispatch(shopActions.SET_RELATED_PRODUCTS(DUMMY_DATA));
+  };
+};

@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   items: [],
+  itemDetails: {},
+  relatedProducts: [],
 };
 
 const shopSlice = createSlice({
@@ -10,6 +12,12 @@ const shopSlice = createSlice({
   reducers: {
     SET_ITEMS(state, aciton) {
       state.items = aciton.payload;
+    },
+    SET_ITEM_DETAILS(state, action) {
+      state.itemDetails = action.payload;
+    },
+    SET_RELATED_PRODUCTS(state, action) {
+      state.relatedProducts = action.payload;
     },
   },
 });
