@@ -1,0 +1,155 @@
+@import 'sassStyles/variables';
+
+.productDetails {
+  background-color: $secondary-color;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  color: $text-color;
+
+  & hr {
+    background-color: rgba(#ebe9f1, 0.2);
+    border: 0;
+    margin: 1rem 0;
+    height: 1px;
+  }
+
+  & .imgContainer {
+    & img {
+      width: 100%;
+    }
+  }
+
+  & .detailsContainer {
+    margin: 2rem 2rem 2rem 0;
+    & h4 {
+      margin-bottom: 0.5rem;
+    }
+    & .seller-info {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      & .seller {
+        color: #7367f0;
+        text-decoration: none;
+      }
+    }
+    & .price-and-rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+
+      & .item-price {
+        color: #7367f0;
+      }
+      & .item-rating {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+
+        & .filledStar {
+          color: #ff9f43;
+        }
+
+        & .outlineStar {
+          color: #babfc7;
+        }
+      }
+    }
+    & .availability {
+      & .in-stock {
+        color: rgb(40, 199, 111);
+      }
+      & .out-of-stock {
+        color: red;
+      }
+    }
+
+    & .item-description {
+      text-align: justify;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    & .free-shipping {
+      display: flex;
+      align-items: center;
+      & .icon {
+        font-size: 1.3rem;
+        padding-right: 0.5rem;
+      }
+      & span {
+        font-weight: 600;
+      }
+    }
+    & .variation {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+      height: 24px;
+    }
+
+    & .action-btns {
+      display: flex;
+
+      & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.8rem 2rem;
+        margin: 1rem;
+        color: $text-color;
+        outline: none;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      & .btn-add-to-cart,
+      .btn-view-in-cart {
+        & .icon {
+          margin-right: 0.5rem;
+        }
+        margin-left: 0;
+        text-decoration: none;
+        background-color: $primary-color;
+        line-height: 1rem;
+        user-select: none;
+        transition: color 0.3s ease-in-out;
+        transition: scale 1s ease-in-out;
+
+        &:hover {
+          box-shadow: 0 8px 25px -8px #7367f0;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+
+      & .btn-wishlist {
+        & .filledIcon {
+          color: rgb(234, 84, 85);
+        }
+        border: 1px solid rgba($text-color, 0.4);
+        background-color: transparent;
+        color: rgba($text-color, 0.5);
+        transition: color 0.3s ease-in-out;
+        transition: scale 1s ease-in-out;
+
+        &:hover {
+          box-shadow: 0 8px 25px -8px #7367f0;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}

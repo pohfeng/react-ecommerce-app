@@ -1,0 +1,13 @@
+@import 'sassStyles/variables.scss';
+
+.filtersContainer {
+  color: $text-color;
+  float: left;
+
+  & .filtersContainers {
+    padding: 1rem;
+    margin: 0 2rem 0 1rem;
+    background-color: $secondary-color;
+    color: $text-color;
+  }
+}

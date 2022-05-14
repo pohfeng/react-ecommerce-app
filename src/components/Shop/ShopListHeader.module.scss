@@ -1,0 +1,59 @@
+@import 'sassStyles/variables.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+
+  & h5 {
+    color: $text-color;
+    margin: 0;
+    margin-right: auto;
+  }
+
+  & .itemSort {
+    color: $primary-color;
+    padding: 0.7rem;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  & .btnGroup {
+    display: flex;
+    margin-left: 5px;
+    border-radius: 5px;
+
+    & button {
+      display: flex;
+      padding: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      outline: none;
+
+      cursor: pointer;
+    }
+
+    & button:focus {
+      background-color: rgba($color: white, $alpha: 0.1);
+    }
+
+    & .gridView {
+      border-radius: 5px 0 0 5px;
+      border: 1px solid $primary-color;
+    }
+
+    & .listView {
+      border-radius: 0 5px 5px 0;
+      border: 1px solid $primary-color;
+    }
+
+    & .icon {
+      color: $primary-color;
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+  }
+}
