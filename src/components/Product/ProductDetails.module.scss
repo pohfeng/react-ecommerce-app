@@ -42,20 +42,8 @@
       font-size: 1.3rem;
 
       & .item-price {
+        margin-right: 1rem;
         color: #7367f0;
-      }
-      & .item-rating {
-        margin-left: 1rem;
-        display: flex;
-        align-items: center;
-
-        & .filledStar {
-          color: #ff9f43;
-        }
-
-        & .outlineStar {
-          color: #babfc7;
-        }
       }
     }
     & .availability {

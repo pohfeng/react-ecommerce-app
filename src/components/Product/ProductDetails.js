@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
-import { BsStarFill, BsStar } from 'react-icons/bs';
+// import { BsStarFill, BsStar } from 'react-icons/bs';
 
 import Card from 'components/UI/Card';
 import Colors from './Variants/Colors';
+import Rating from 'components/Common/Rating/Rating';
 
 import classes from './ProductDetails.module.scss';
 
@@ -30,13 +31,13 @@ const ProductDetails = () => {
     dispatch(fetchDataDetails(id));
   }, [dispatch, id]);
 
-  const goodRating = [...Array(rating)].map((e, i) => (
-    <BsStarFill className={classes.filledStar} key={`good_${i}`} />
-  ));
+  // const goodRating = [...Array(rating)].map((e, i) => (
+  //   <BsStarFill className={classes.filledStar} key={`good_${i}`} />
+  // ));
 
-  const badRating = [...Array(5 - rating)].map((e, i) => (
-    <BsStar key={`bad_${i}`} className={classes.outlineStar} />
-  ));
+  // const badRating = [...Array(5 - rating)].map((e, i) => (
+  //   <BsStar key={`bad_${i}`} className={classes.outlineStar} />
+  // ));
 
   const stockInfo = itemDetails.available_unit ? 'In Stock' : 'Out of Stock';
   const stockInfoClass = itemDetails.available_unit
@@ -62,10 +63,7 @@ const ProductDetails = () => {
         </div>
         <div className={classes['price-and-rating']}>
           <div className={classes['item-price']}>RM{itemDetails.price}</div>
-          <div className={classes['item-rating']}>
-            {goodRating}
-            {badRating}
-          </div>
+          <Rating rating={rating} />
         </div>
         <div className={classes.availability}>
           <span>Available - </span>

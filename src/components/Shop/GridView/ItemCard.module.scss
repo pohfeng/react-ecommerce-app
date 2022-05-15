@@ -24,18 +24,6 @@
     & .item-wrapper {
       display: flex;
 
-      & .item-rating {
-        display: flex;
-
-        & .filledStar {
-          color: #ff9f43;
-        }
-
-        & .outlineStar {
-          color: #babfc7;
-        }
-      }
-
       & .item-price {
         margin-left: auto;
         color: $text-color;

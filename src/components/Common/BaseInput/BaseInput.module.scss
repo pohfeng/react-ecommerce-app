@@ -1,0 +1,42 @@
+@import 'sassStyles/variables';
+
+.form-control {
+  margin: auto auto 1rem;
+  width: 100%;
+
+  & label {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: left;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  & input {
+    margin: 0;
+    padding: 2px 10px;
+    line-height: 2rem;
+    font-size: 1rem;
+    font-weight: 200;
+    width: 100%;
+    background: transparent;
+    color: $text-color;
+    border: 1px solid rgba($text-color, 0.4);
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+  }
+
+  & input:focus {
+    box-shadow: 0 0 5px $primary-color;
+    border: 1px solid $primary-color;
+  }
+
+  & .error {
+    color: $color-warning;
+    border-color: $color-warning;
+    text-align: left;
+    font-size: 1rem;
+  }
+}

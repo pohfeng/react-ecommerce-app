@@ -1,0 +1,18 @@
+@import 'sassStyles/variables';
+
+.cart-summary {
+  background-color: $secondary-color;
+  color: $text-color;
+  margin: 2rem 2rem 2rem 0rem;
+  padding: 2rem;
+
+  & > * {
+    margin: 1rem 0;
+    font-weight: 100;
+    display: flex;
+
+    & .total-amount {
+      margin-left: auto;
+    }
+  }
+}
