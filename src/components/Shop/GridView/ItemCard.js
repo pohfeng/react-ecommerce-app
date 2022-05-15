@@ -1,18 +1,19 @@
 import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
-import { BsStarFill, BsStar } from 'react-icons/bs';
+// import { BsStarFill, BsStar } from 'react-icons/bs';
 // import { Link } from 'react-router-dom';
 
 import Card from '../../UI/Card';
+import Rating from 'components/Common/Rating/Rating';
 
 import classes from './ItemCard.module.scss';
 
 const ItemCard = (props) => {
-  const goodRating = [...Array(props.rating)].map((e, i) => (
-    <BsStarFill className={classes.filledStar} key={`good_${i}`} />
-  ));
-  const badRating = [...Array(5 - props.rating)].map((e, i) => (
-    <BsStar key={`bad_${i}`} className={classes.outlineStar} />
-  ));
+  // const goodRating = [...Array(props.rating)].map((e, i) => (
+  //   <BsStarFill className={classes.filledStar} key={`good_${i}`} />
+  // ));
+  // const badRating = [...Array(5 - props.rating)].map((e, i) => (
+  //   <BsStar key={`bad_${i}`} className={classes.outlineStar} />
+  // ));
 
   return (
     <Card className={classes['item-card']}>
@@ -21,10 +22,7 @@ const ItemCard = (props) => {
       </div>
       <div className={classes['item-info']}>
         <div className={classes['item-wrapper']}>
-          <div className={classes['item-rating']}>
-            {goodRating}
-            {badRating}
-          </div>
+          <Rating rating={props.rating} />
           <div className={classes['item-price']}>RM{props.price}</div>
         </div>
         <h6 className={classes['item-name']}>{props.name}</h6>

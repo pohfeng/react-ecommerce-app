@@ -1,20 +1,13 @@
 import { Link } from 'react-router-dom';
 
 import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
-import { BsStarFill, BsStar } from 'react-icons/bs';
 
 import Card from 'components/UI/Card';
+import Rating from 'components/Common/Rating/Rating';
 
 import classes from './ItemCard.module.scss';
 
 const ItemCard = (props) => {
-  const goodRating = [...Array(props.rating)].map((e, i) => (
-    <BsStarFill className={classes.filledStar} key={`good_${i}`} />
-  ));
-  const badRating = [...Array(5 - props.rating)].map((e, i) => (
-    <BsStar key={`bad_${i}`} className={classes.outlineStar} />
-  ));
-
   return (
     <Card className={classes.itemCard}>
       <div className={classes.itemImg}>
@@ -26,11 +19,7 @@ const ItemCard = (props) => {
           <span>By </span>
           <Link className={classes.seller}>Apple</Link>
         </div>
-
-        <div className={classes['item-rating']}>
-          {goodRating}
-          {badRating}
-        </div>
+        <Rating rating={props.rating} />
         <p className={classes['item-description']}>{props.description}</p>
       </div>
       <div className={classes.itemOptions}>

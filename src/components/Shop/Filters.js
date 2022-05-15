@@ -1,5 +1,4 @@
 import Card from 'components/UI/Card';
-import { Fragment } from 'react';
 import classes from './Filters.module.scss';
 
 const Filters = () => {

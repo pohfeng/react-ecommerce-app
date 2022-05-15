@@ -1,0 +1,11 @@
+.item-rating {
+  display: flex;
+
+  & .filledStar {
+    color: #ff9f43;
+  }
+
+  & .outlineStar {
+    color: #babfc7;
+  }
+}

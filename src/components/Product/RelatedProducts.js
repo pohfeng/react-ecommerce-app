@@ -2,7 +2,7 @@ import Card from 'components/UI/Card';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Carousel from 'components/Carousel/Carousel';
+import Carousel from 'components/Common/Carousel/Carousel';
 
 import classes from './RelatedProducts.module.scss';
 

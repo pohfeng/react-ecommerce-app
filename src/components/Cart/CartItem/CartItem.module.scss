@@ -1,0 +1,141 @@
+@import 'sassStyles/variables.scss';
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background-color: $secondary-color;
+  margin: 2rem;
+  color: $text-color;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  & .item-img {
+    & img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  & .item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    & > * {
+      margin-bottom: 1rem;
+    }
+
+    & .item-name {
+      color: $primary-color;
+    }
+
+    & .item-availability {
+      & .in-stock {
+        color: rgb(40, 199, 111);
+      }
+      & .out-of-stock {
+        color: red;
+      }
+    }
+    & .item-quantity {
+      display: flex;
+      align-items: center;
+      height: 2rem;
+
+      & .qty-handler {
+        margin-left: 1rem;
+
+        & .qty-display {
+          padding: 0.6rem 2rem;
+          border-radius: 10px;
+          background-color: #161d31;
+        }
+        & button {
+          display: inline-flex;
+          align-items: center;
+          height: 25px;
+          position: relative;
+          border: 0;
+          border-radius: 5px;
+          background-color: $primary-color;
+          color: white;
+          cursor: pointer;
+
+          &:disabled {
+            background-color: #aaa;
+          }
+        }
+
+        & .add-btn {
+          left: -15px;
+        }
+        & .minus-btn {
+          left: 15px;
+        }
+      }
+    }
+  }
+
+  & .item-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba($text-color, 0.4);
+    height: 100%;
+
+    & > * {
+      margin-bottom: 2rem;
+    }
+
+    & button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+
+      color: $text-color;
+      outline: none;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    & .item-price {
+      color: $primary-color;
+    }
+    & .shipping-info {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background-color: rgba(40, 199, 111, 0.1);
+      color: rgb(40, 199, 111);
+    }
+    & .remove-btn {
+      & .icon {
+        margin-right: 0.5rem;
+      }
+      margin-left: 0;
+      text-decoration: none;
+      background-color: $primary-color;
+      line-height: 1rem;
+      user-select: none;
+      transition: color 0.3s ease-in-out;
+      transition: scale 1s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 8px 25px -8px #7367f0;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

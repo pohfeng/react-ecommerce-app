@@ -1,0 +1,51 @@
+@import 'sassStyles/variables';
+
+.address-form {
+  background-color: $secondary-color;
+  color: $text-color;
+  margin: 2rem 1rem 2rem 2rem;
+  padding: 1rem 2rem 2rem 2rem;
+
+  & form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 1rem;
+    margin: 2rem 0 0;
+    align-items: flex-start;
+
+    & form > * {
+      width: 100%;
+    }
+
+    & button {
+      grid-column: 1 / span 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      width: 100%;
+      color: $text-color;
+      outline: none;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      background-color: $primary-color;
+      line-height: 1rem;
+      user-select: none;
+      transition: color 0.3s ease-in-out;
+      transition: scale 1s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 8px 25px -8px #7367f0;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+}

@@ -10,8 +10,8 @@ const shopSlice = createSlice({
   name: 'shop',
   initialState,
   reducers: {
-    SET_ITEMS(state, aciton) {
-      state.items = aciton.payload;
+    SET_ITEMS(state, action) {
+      state.items = action.payload;
     },
     SET_ITEM_DETAILS(state, action) {
       state.itemDetails = action.payload;

@@ -1,0 +1,108 @@
+@import 'sassStyles/variables';
+
+@mixin radioBtn {
+  width: 1.285rem;
+  height: 1.285rem;
+  vertical-align: top;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 0.0825rem;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  border: 1px solid #d8d6de;
+  border-radius: 50%;
+  float: left;
+  margin-right: 1rem;
+
+  &:checked {
+    background-color: #7367f0;
+    border-color: #7367f0;
+    background-image: none;
+    box-shadow: 0 2px 4px 0 rgb(115 103 240 / 40%);
+  }
+}
+
+.payment-options {
+  background-color: $secondary-color;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 1rem 2rem;
+
+  & hr {
+    width: 100%;
+  }
+
+  & .saved-card {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    & > * {
+      margin: 0.5rem 0;
+      padding-left: 0;
+    }
+
+    & .card-info > input {
+      @include radioBtn;
+    }
+
+    & .payment-action {
+      display: flex;
+      align-items: center;
+
+      & input {
+        outline: none;
+        padding: 0.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        background-color: transparent;
+        border: 1px solid rgba($text-color, 0.5);
+        border-radius: 5px;
+        color: $text-color;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+      }
+    }
+  }
+
+  & .payment-method > * {
+    margin: 1rem 0;
+
+    & .radio-btn {
+      @include radioBtn;
+    }
+
+    & input .radio-btn:not(:checked):not(:indeterminate):not(:focus) {
+      border-color: #404656;
+    }
+  }
+
+  & button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-color;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: $primary-color;
+    user-select: none;
+    transition: color 0.3s ease-in-out;
+    transition: scale 1s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 8px 25px -8px #7367f0;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
