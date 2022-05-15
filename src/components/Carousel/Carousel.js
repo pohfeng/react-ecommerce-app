@@ -97,12 +97,10 @@ const Carousel = (props) => {
       </div>
       <button
         className={classes['icon-container']}
+        onClick={rightArrowClickHandler}
         disabled={disableRightArrow}
       >
-        <FiChevronRight
-          className={classes.icon}
-          onClick={rightArrowClickHandler}
-        />
+        <FiChevronRight className={classes.icon} />
       </button>
     </div>
   );
