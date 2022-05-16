@@ -44,7 +44,7 @@ function App() {
         <Route path="/shop">
           <ShopPage />
         </Route>
-        <Route path="/product-detail/:id">
+        <Route path="/product-details/:id">
           <ProductPage />
         </Route>
         <Route path="/checkout">

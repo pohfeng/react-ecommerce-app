@@ -14,8 +14,11 @@
     transform: translateY(-0.3rem);
   }
 
-  & .item-img > img {
-    width: 100%;
+  & .item-img {
+    cursor: pointer;
+    & img {
+      width: 100%;
+    }
   }
 
   & .item-info {
@@ -35,6 +38,12 @@
       margin-top: 0.3rem;
       margin-bottom: 0;
       color: $text-color;
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
     & .item-description {
       font-size: 0.9rem;
