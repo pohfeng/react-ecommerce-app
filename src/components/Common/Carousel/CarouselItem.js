@@ -18,7 +18,7 @@ const CarouselItem = ({ itemDetails, itemWidth }) => {
     >
       <span className={classes['item-name']}>{itemDetails.name}</span>
       <div>by Apple</div>
-      <img src={require('images/iphone-13-pink.png')} alt="Item Picuture" />
+      <img src={props.image_url} alt="Item Picuture" />
       <Rating rating={itemDetails.rating} />
       <div className={classes['item-price']}>RM{itemDetails.price}</div>
     </div>

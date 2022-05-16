@@ -2,6 +2,8 @@ const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
   addressList: [],
+  showSignInForm: false,
+  showSignUpForm: false,
 };
 
 const userSlice = createSlice({
@@ -18,6 +20,12 @@ const userSlice = createSlice({
       state.addressList = state.addressList.filter((address) => {
         return address.id !== action.payload.id;
       });
+    },
+    SET_SHOW_SIGN_IN(state, action) {
+      state.showSignInForm = action.payload;
+    },
+    SET_SHOW_SIGN_UP(state, action) {
+      state.showSignUpForm = action.payload;
     },
   },
 });
