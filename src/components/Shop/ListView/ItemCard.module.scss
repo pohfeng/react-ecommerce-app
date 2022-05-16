@@ -13,6 +13,7 @@
   }
 
   & .itemImg {
+    cursor: pointer;
     & img {
       width: 100%;
     }
@@ -28,6 +29,12 @@
       margin-top: 0.3rem;
       margin-bottom: 0;
       color: $text-color;
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
 
     & .seller-info {

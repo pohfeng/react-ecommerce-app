@@ -1,11 +1,10 @@
 @import 'sassStyles/variables';
 
-.checkout-page {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+.product-page {
+  margin: 2rem;
 }
 
-.checkout-flow {
+.details-flow {
   display: flex;
   margin: 1rem 2rem;
   margin-bottom: 0;
