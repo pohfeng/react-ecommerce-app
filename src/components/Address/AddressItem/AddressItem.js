@@ -1,8 +1,14 @@
 import Card from 'components/UI/Card';
+import { useHistory } from 'react-router-dom';
 
 import classes from './AddressItem.module.scss';
 
 const AddressItem = (props) => {
+  const history = useHistory();
+  const deliveryHandler = () => {
+    history.push('/checkout/address/payment');
+  };
+
   return (
     <Card className={classes['address-item']}>
       <div>
@@ -20,7 +26,7 @@ const AddressItem = (props) => {
       <div>
         <small>{props.phone_no}</small>
       </div>
-      <button>Deliver To This Address</button>
+      <button onClick={deliveryHandler}>Deliver To This Address</button>
     </Card>
   );
 };

@@ -10,6 +10,7 @@ import classes from './NewAddressForm.module.scss';
 import { useDispatch } from 'react-redux';
 
 import { userActions } from 'store/user-slice';
+import { useHistory } from 'react-router-dom';
 
 const schema = Joi.object({
   name: Joi.string().required().label('Name'),
@@ -21,7 +22,9 @@ const schema = Joi.object({
 });
 
 const NewAddressForm = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -51,6 +54,7 @@ const NewAddressForm = () => {
       phone_no: event.phone_no,
     };
     dispatch(userActions.ADD_ADDRESS(payloadData));
+    history.push('/checkout/address/payment');
     reset();
   };
 

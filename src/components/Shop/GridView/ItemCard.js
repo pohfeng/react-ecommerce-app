@@ -1,4 +1,4 @@
-import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
+import { FiShoppingCart } from 'react-icons/fi';
 // import { BsStarFill, BsStar } from 'react-icons/bs';
 // import { Link } from 'react-router-dom';
 
@@ -29,17 +29,17 @@ const ItemCard = (props) => {
         <p className={classes['item-description']}>{props.description}</p>
       </div>
       <div className={classes['action-buttons']}>
-        <button className={classes['btn-wishlist']}>
+        {/* <button className={classes['btn-wishlist']}>
           <HiHeart className={classes.icon} />
           <HiOutlineHeart className={classes.icon} />
           <span>Wishlist</span>
-        </button>
+        </button> */}
         <button className={classes['btn-add-to-cart']}>
-          <HiOutlineShoppingCart className={classes.icon} />
+          <FiShoppingCart className={classes.icon} />
           <span>Add To Cart</span>
         </button>
         {/* <Link to="" className={classes['btn-view-in-cart']}>
-          <HiOutlineShoppingCart className={classes.icon} />
+          <FiShoppingCart className={classes.icon} />
           <span>View In Cart</span>
         </Link> */}
       </div>

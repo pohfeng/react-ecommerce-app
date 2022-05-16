@@ -4,6 +4,10 @@
   color: $text-color;
   float: left;
 
+  & h5 {
+    margin: 1rem 0 1rem 1rem;
+  }
+
   & .filtersContainers {
     padding: 1rem;
     margin: 0 2rem 0 1rem;

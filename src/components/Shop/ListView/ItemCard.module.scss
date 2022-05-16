@@ -59,11 +59,12 @@
       color: $primary-color;
     }
 
-    & .btn-wishlist {
-      background-color: #161d31;
-    }
+    // & .btn-wishlist {
+    //   background-color: #161d31;
+    // }
 
-    & button {
+    & button,
+    a {
       display: flex;
       justify-content: center;
       font-size: inherit;
