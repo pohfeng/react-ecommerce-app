@@ -56,7 +56,7 @@ const ItemCard = (props) => {
   return (
     <Card className={classes['item-card']}>
       <div className={classes['item-img']} onClick={viewDetailsHandler}>
-        <img src={require('images/iphone-13-pink.png')} alt="Item Picuture" />
+        <img src="/images/iphone-12-64gb(3399).png" alt="Item Picuture" />
       </div>
       <div className={classes['item-info']}>
         <div className={classes['item-wrapper']}>

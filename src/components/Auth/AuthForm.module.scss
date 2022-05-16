@@ -1,0 +1,55 @@
+.Login,
+.Signup {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+
+  & h1 {
+    font-size: 3rem;
+    margin: 0;
+    display: inline-block;
+    background: linear-gradient(310deg, rgb(33, 82, 255), rgb(33, 212, 253));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  & form button {
+    width: 100%;
+    font-size: 1.5rem;
+    color: white;
+    height: 3rem;
+    border: rgb(23, 193, 232);
+    border-radius: 10px;
+    outline: none;
+    background-image: linear-gradient(
+      310deg,
+      rgb(33, 82, 255),
+      rgb(33, 212, 253)
+    );
+    cursor: pointer;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  & .linkControl {
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+
+  & .redirect-text {
+    color: #d25fff;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+      color: #ff4ed4;
+    }
+  }
+}

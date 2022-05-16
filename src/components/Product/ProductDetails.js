@@ -51,7 +51,7 @@ const ProductDetails = () => {
   return (
     <Card className={classes.productDetails}>
       <div className={classes.imgContainer}>
-        <img src={require('images/iphone-13-pink.png')} alt="Item Picuture" />
+        <img src={itemDetails.image_url} alt="Item Picuture" />
       </div>
       <div className={classes.detailsContainer}>
         <h4>{itemDetails.name}</h4>

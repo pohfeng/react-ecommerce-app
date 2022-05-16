@@ -7,14 +7,20 @@ import ShopPage from './pages/ShopPage';
 import ProductPage from 'pages/ProductPage';
 import CheckoutPage from './pages/CheckoutPage';
 
+import SignInForm from 'components/Auth/SignInForm';
+import SignUpForm from 'components/Auth/SignUpForm';
+
 import './App.scss';
 
 import { fetchShopData } from 'store/shop-actions';
 import { fetchCartItems } from 'store/cart-actions';
 import { fetchUserAddress } from 'store/user-actions';
+import { userActions } from 'store/user-slice';
 
 function App() {
   const dispatch = useDispatch();
+  const showSignInForm = useSelector((state) => state.user.showSignInForm);
+  const showSignUpForm = useSelector((state) => state.user.showSignUpForm);
   const cartItemCount = useSelector((state) => state.cart.items.length);
 
   useEffect(() => {
@@ -22,6 +28,10 @@ function App() {
     dispatch(fetchCartItems());
     dispatch(fetchUserAddress());
   }, [dispatch]);
+
+  const openModalHandler = () => {
+    dispatch(userActions.SET_SHOW_SIGN_IN(true));
+  };
 
   return (
     <Fragment>
@@ -34,9 +44,13 @@ function App() {
           <span className="item-count">{cartItemCount}</span>
         </Link>
         <div className="sign-in">
-          <button to="/checkout">Sign In</button>
+          <button to="/checkout" onClick={openModalHandler}>
+            Sign In
+          </button>
         </div>
       </nav>
+      {showSignInForm && <SignInForm />}
+      {showSignUpForm && <SignUpForm />}
       <Switch>
         <Route path="/" exact>
           <Redirect to="/shop" />

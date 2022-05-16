@@ -36,7 +36,7 @@ const CartItem = (props) => {
   return (
     <Card className={classes['cart-item']}>
       <div className={classes['item-img']}>
-        <img src={require('images/iphone-13-pink.png')} alt="Item Picuture" />
+        <img src={props.image_url} alt="Item Picuture" />
       </div>
       <div className={classes['item-info']}>
         <div className={classes['item-name']}>
