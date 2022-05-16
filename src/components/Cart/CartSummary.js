@@ -1,9 +1,11 @@
 import Card from 'components/UI/Card';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import classes from './CartSummary.module.scss';
 
 const CartSummary = () => {
   const cartItems = useSelector((state) => state.cart.items);
+  const history = useHistory();
 
   const totalItemAmount = cartItems.reduce((total, item) => {
     return total + item.total_amount;
@@ -13,6 +15,10 @@ const CartSummary = () => {
   }, 0);
 
   const totalPayment = totalItemAmount + totalDeliveryFee;
+
+  const placeOrderHandler = () => {
+    history.push('/checkout/address');
+  };
 
   return (
     <div>
@@ -43,7 +49,9 @@ const CartSummary = () => {
             RM {totalPayment.toFixed(2)}
           </small>
         </div>
-        <button className={classes['order-btn']}>Place Order</button>
+        <button className={classes['order-btn']} onClick={placeOrderHandler}>
+          Place Order
+        </button>
       </Card>
     </div>
   );

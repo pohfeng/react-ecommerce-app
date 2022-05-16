@@ -1,13 +1,33 @@
 import { Link } from 'react-router-dom';
 
-import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
+import { FiShoppingCart } from 'react-icons/fi';
 
 import Card from 'components/UI/Card';
 import Rating from 'components/Common/Rating/Rating';
 
 import classes from './ItemCard.module.scss';
+import { useSelector } from 'react-redux';
 
 const ItemCard = (props) => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemInCart = cartItems.findIndex((item) => item.id === props.id);
+  let actionBtn;
+
+  if (itemInCart) {
+    actionBtn = (
+      <Link to="" className={classes['btn-view-in-cart']}>
+        <FiShoppingCart className={classes.icon} />
+        <span>View In Cart</span>
+      </Link>
+    );
+  } else {
+    actionBtn = (
+      <button className={classes['btn-add-to-cart']}>
+        <FiShoppingCart className={classes.icon} />
+        <span>Add To Cart</span>
+      </button>
+    );
+  }
   return (
     <Card className={classes.itemCard}>
       <div className={classes.itemImg}>
@@ -24,19 +44,12 @@ const ItemCard = (props) => {
       </div>
       <div className={classes.itemOptions}>
         <div className={classes['item-price']}>RM{props.price}</div>
-        <button className={classes['btn-wishlist']}>
+        {actionBtn}
+        {/* <button className={classes['btn-wishlist']}>
           <HiHeart className={classes.icon} />
           <HiOutlineHeart className={classes.icon} />
           <span>Wishlist</span>
-        </button>
-        <button className={classes['btn-add-to-cart']}>
-          <HiOutlineShoppingCart className={classes.icon} />
-          <span>Add To Cart</span>
-        </button>
-        {/* <Link to="" className={classes['btn-view-in-cart']}>
-          <HiOutlineShoppingCart className={classes.icon} />
-          <span>View In Cart</span>
-        </Link> */}
+        </button> */}
       </div>
     </Card>
   );

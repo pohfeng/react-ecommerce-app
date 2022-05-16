@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
+import { FiShoppingCart } from 'react-icons/fi';
 // import { BsStarFill, BsStar } from 'react-icons/bs';
 
 import Card from 'components/UI/Card';
@@ -71,7 +71,7 @@ const ProductDetails = () => {
         </div>
         <p className={classes['item-description']}>{itemDetails.description}</p>
         <div className={classes['free-shipping']}>
-          <HiOutlineShoppingCart className={classes.icon} />
+          <FiShoppingCart className={classes.icon} />
           <span>Free Shipping</span>
         </div>
         <hr />
@@ -80,18 +80,18 @@ const ProductDetails = () => {
         <hr />
         <div className={classes['action-btns']}>
           <button className={classes['btn-add-to-cart']}>
-            <HiOutlineShoppingCart className={classes.icon} />
+            <FiShoppingCart className={classes.icon} />
             <span>Add To Cart</span>
           </button>
           {/* <Link to="" className={classes['btn-view-in-cart']}>
-          <HiOutlineShoppingCart className={classes.icon} />
+          <FiShoppingCart className={classes.icon} />
           <span>View In Cart</span>
         </Link> */}
-          <button className={classes['btn-wishlist']}>
+          {/* <button className={classes['btn-wishlist']}>
             <HiHeart className={`${classes.icon} ${classes.filledIcon}`} />
             <HiOutlineHeart className={classes.icon} />
             <span>Wishlist</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </Card>

@@ -120,24 +120,24 @@
         }
       }
 
-      & .btn-wishlist {
-        & .filledIcon {
-          color: rgb(234, 84, 85);
-        }
-        border: 1px solid rgba($text-color, 0.4);
-        background-color: transparent;
-        color: rgba($text-color, 0.5);
-        transition: color 0.3s ease-in-out;
-        transition: scale 1s ease-in-out;
+      // & .btn-wishlist {
+      //   & .filledIcon {
+      //     color: rgb(234, 84, 85);
+      //   }
+      //   border: 1px solid rgba($text-color, 0.4);
+      //   background-color: transparent;
+      //   color: rgba($text-color, 0.5);
+      //   transition: color 0.3s ease-in-out;
+      //   transition: scale 1s ease-in-out;
 
-        &:hover {
-          box-shadow: 0 8px 25px -8px #7367f0;
-        }
+      //   &:hover {
+      //     box-shadow: 0 8px 25px -8px #7367f0;
+      //   }
 
-        &:active {
-          transform: scale(0.95);
-        }
-      }
+      //   &:active {
+      //     transform: scale(0.95);
+      //   }
+      // }
     }
   }
 }
