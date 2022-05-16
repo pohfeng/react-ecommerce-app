@@ -15,7 +15,7 @@ const ItemCard = (props) => {
 
   if (itemInCart) {
     actionBtn = (
-      <Link to="" className={classes['btn-view-in-cart']}>
+      <Link to="/checkout" className={classes['btn-view-in-cart']}>
         <FiShoppingCart className={classes.icon} />
         <span>View In Cart</span>
       </Link>
@@ -37,7 +37,7 @@ const ItemCard = (props) => {
         <h6 className={classes['item-name']}>{props.name}</h6>
         <div className={classes['seller-info']}>
           <span>By </span>
-          <Link className={classes.seller}>Apple</Link>
+          <span className={classes.seller}>Apple</span>
         </div>
         <Rating rating={props.rating} />
         <p className={classes['item-description']}>{props.description}</p>
