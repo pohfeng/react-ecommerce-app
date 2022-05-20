@@ -83,7 +83,8 @@
     & .action-btns {
       display: flex;
 
-      & button {
+      & button,
+      a {
         display: flex;
         justify-content: center;
         align-items: center;

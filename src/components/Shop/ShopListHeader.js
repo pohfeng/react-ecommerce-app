@@ -14,13 +14,17 @@ const ShopHeader = (props) => {
   return (
     <div className={classes.header}>
       <h5>27 Result Found</h5>
-      <select name="item-sort-selector" className={classes.itemSort}>
-        <option value="name-ascending">Name (A-Z)</option>
-        <option value="name-descending">Name (Z-A)</option>
-        <option value="price-ascending">Price (Low-High)</option>
-        <option value="price-descending">Price (High-Low)</option>
-        <option value="rating-ascending">Rating (Highest)</option>
-        <option value="rating-descending">Rating (Lowest)</option>
+      <select
+        name="item-sort-selector"
+        className={classes.itemSort}
+        onChange={props.onSortSelect}
+      >
+        <option value="name-asc">Name (A-Z)</option>
+        <option value="name-desc">Name (Z-A)</option>
+        <option value="price-asc">Price (Low-High)</option>
+        <option value="price-desc">Price (High-Low)</option>
+        <option value="rating-asc">Rating (Lowest)</option>
+        <option value="rating-desc">Rating (Highest)</option>
       </select>
       <div className={classes.btnGroup}>
         <button

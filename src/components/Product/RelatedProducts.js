@@ -10,6 +10,7 @@ import { fetchRelatedProducts } from '../../store/shop-actions';
 
 const ProductCarousel = () => {
   const dispatch = useDispatch();
+
   const relatedProducts = useSelector((state) => state.shop.relatedProducts);
 
   useEffect(() => {
