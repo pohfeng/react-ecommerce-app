@@ -1,0 +1,45 @@
+.paginationRow {
+  line-height: 2rem;
+
+  & .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+
+    & .pageBtn {
+      cursor: pointer;
+      height: 2em;
+      width: 2em;
+      vertical-align: middle;
+      background-color: #f3f2f7;
+      user-select: none;
+
+      &:first-child {
+        border-radius: 5rem 0 0 5rem;
+      }
+
+      &:last-child {
+        border-radius: 0 5rem 5rem 0;
+      }
+
+      & .icon {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.currentPageBtn {
+  border-radius: 5rem;
+  color: white;
+  background-color: #1cd2e8;
+
+  & .pageBtn * {
+    border-radius: 5rem;
+
+    text-align: center;
+    font-weight: 600;
+  }
+}
