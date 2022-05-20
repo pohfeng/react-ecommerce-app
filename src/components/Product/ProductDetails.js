@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
-// import { BsStarFill, BsStar } from 'react-icons/bs';
 
 import Card from 'components/UI/Card';
 import Colors from './Variants/Colors';
@@ -10,6 +9,7 @@ import Rating from 'components/Common/Rating/Rating';
 
 import classes from './ProductDetails.module.scss';
 
+import { cartActions } from 'store/cart-slice';
 import { fetchDataDetails } from '../../store/shop-actions';
 
 const itemColorVariants = [
@@ -26,18 +26,12 @@ const ProductDetails = () => {
   const { id } = useParams();
   const itemDetails = useSelector((state) => state.shop.itemDetails);
   const { rating = 0 } = itemDetails;
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemInCart = cartItems.find((item) => item.id === id);
 
   useEffect(() => {
     dispatch(fetchDataDetails(id));
   }, [dispatch, id]);
-
-  // const goodRating = [...Array(rating)].map((e, i) => (
-  //   <BsStarFill className={classes.filledStar} key={`good_${i}`} />
-  // ));
-
-  // const badRating = [...Array(5 - rating)].map((e, i) => (
-  //   <BsStar key={`bad_${i}`} className={classes.outlineStar} />
-  // ));
 
   const stockInfo = itemDetails.available_unit ? 'In Stock' : 'Out of Stock';
   const stockInfoClass = itemDetails.available_unit
@@ -47,6 +41,38 @@ const ProductDetails = () => {
   const colorVariant = itemColorVariants.map((variant, index) => {
     return <Colors key={`color_${index}`} colorClass={variant} />;
   });
+
+  const addItemToCartHandler = () => {
+    const itemInfo = {
+      ...itemDetails,
+      quantity: 1,
+      total_amount: itemDetails.price,
+      shipping_fee: 0,
+    };
+    delete itemInfo.description;
+    dispatch(cartActions.ADD_ITEM({ itemInfo }));
+  };
+
+  let actionBtn;
+
+  if (itemInCart) {
+    actionBtn = (
+      <Link to="/checkout" className={classes['btn-view-in-cart']}>
+        <FiShoppingCart className={classes.icon} />
+        <span>View In Cart</span>
+      </Link>
+    );
+  } else {
+    actionBtn = (
+      <button
+        className={classes['btn-add-to-cart']}
+        onClick={addItemToCartHandler}
+      >
+        <FiShoppingCart className={classes.icon} />
+        <span>Add To Cart</span>
+      </button>
+    );
+  }
 
   return (
     <Card className={classes.productDetails}>
@@ -78,11 +104,13 @@ const ProductDetails = () => {
         <h4>Colors</h4>
         <ul className={classes.variation}>{colorVariant}</ul>
         <hr />
+
         <div className={classes['action-btns']}>
-          <button className={classes['btn-add-to-cart']}>
+          {actionBtn}
+          {/* <button className={classes['btn-add-to-cart']}>
             <FiShoppingCart className={classes.icon} />
             <span>Add To Cart</span>
-          </button>
+          </button> */}
           {/* <Link to="" className={classes['btn-view-in-cart']}>
           <FiShoppingCart className={classes.icon} />
           <span>View In Cart</span>

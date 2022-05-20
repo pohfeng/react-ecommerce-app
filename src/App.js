@@ -24,7 +24,7 @@ function App() {
   const cartItemCount = useSelector((state) => state.cart.items.length);
 
   useEffect(() => {
-    dispatch(fetchShopData());
+    dispatch(fetchShopData({}));
     dispatch(fetchCartItems());
     dispatch(fetchUserAddress());
   }, [dispatch]);
