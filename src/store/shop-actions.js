@@ -19,6 +19,7 @@ export const fetchShopData = () => {
     querySnapshot.forEach((doc) => {
       shopData.push({ id: doc.id, ...doc.data() });
     });
+    console.log(shopData);
 
     await dispatch(shopActions.SET_ALL_ITEMS(shopData));
     await dispatch(shopActions.FILTER_ITEMS({}));
