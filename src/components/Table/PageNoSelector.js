@@ -9,6 +9,14 @@ const pageInitialState = {
   pageList: [],
 };
 
+const scrollPageToTop = () => {
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 const pageReducer = (state, action) => {
   if (action.type === 'SET_PAGE_LIST') {
     return { ...state, pageList: action.payload };
@@ -66,11 +74,17 @@ const PageNoSelector = (props) => {
   }, [currentPage, onChange]);
 
   const prevPageHandler = () => {
-    if (currentPage > 1) dispatchPage({ type: 'PREV_PAGE' });
+    if (currentPage > 1) {
+      dispatchPage({ type: 'PREV_PAGE' });
+      scrollPageToTop();
+    }
   };
 
   const nextPageHandler = () => {
-    if (currentPage < totalPages) dispatchPage({ type: 'NEXT_PAGE' });
+    if (currentPage < totalPages) {
+      dispatchPage({ type: 'NEXT_PAGE' });
+      scrollPageToTop();
+    }
   };
 
   const selectPageHandler = (event) => {
@@ -78,6 +92,7 @@ const PageNoSelector = (props) => {
       type: 'SET_CURRENT_PAGE',
       payload: +event.target.textContent,
     });
+    scrollPageToTop();
   };
 
   const doubleClickHandler = (event) => {
