@@ -7,6 +7,7 @@ import BaseInput from '../Common/BaseInput/BaseInput';
 import Modal from 'components/UI/Modal';
 
 // import { signUp } from '../../services/Auth';
+import { signUp } from 'store/user-actions';
 
 import classes from './AuthForm.module.scss';
 
@@ -45,14 +46,9 @@ const SigupForm = () => {
     resolver: joiResolver(schema),
   });
 
-  const submitHandler = async (event) => {
-    // const response = await signUp({
-    //   email: event.email,
-    //   password: event.password,
-    //   returnSecureToken: true,
-    // });
+  const submitHandler = async (payload) => {
+    dispatch(signUp(payload));
     reset();
-    // console.log('signup response: ', response);
   };
 
   const closeModalHandler = () => {

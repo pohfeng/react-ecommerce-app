@@ -11,6 +11,7 @@ import Modal from 'components/UI/Modal';
 import classes from './AuthForm.module.scss';
 
 import { userActions } from 'store/user-slice';
+import { signIn } from 'store/user-actions';
 
 const errorHandler = (errors) => {
   errors.forEach((error) => {
@@ -40,8 +41,18 @@ const LoginForm = () => {
     resolver: joiResolver(schema),
   });
 
-  const submitHandler = async (event) => {
-    console.log(event);
+  const closeModalHandler = () => {
+    dispatch(userActions.SET_SHOW_SIGN_IN(false));
+  };
+
+  const showSignUpFormHandler = () => {
+    dispatch(userActions.SET_SHOW_SIGN_IN(false));
+    dispatch(userActions.SET_SHOW_SIGN_UP(true));
+  };
+
+  const submitHandler = async (payload) => {
+    await dispatch(signIn(payload));
+    closeModalHandler();
     // const response = await logIn({
     //   email: event.email,
     //   password: event.password,
@@ -50,15 +61,6 @@ const LoginForm = () => {
     // if (response.data?.idToken) reset();
 
     // console.log('LogIn: ', response.data);
-  };
-
-  const closeModalHandler = () => {
-    dispatch(userActions.SET_SHOW_SIGN_IN(false));
-  };
-
-  const showSignUpFormHandler = () => {
-    dispatch(userActions.SET_SHOW_SIGN_IN(false));
-    dispatch(userActions.SET_SHOW_SIGN_UP(true));
   };
 
   const { email: emailErrors, password: passwordErrors } = errors;
@@ -76,6 +78,7 @@ const LoginForm = () => {
               type="email"
               {...register('email')}
               errors={emailErrors}
+              value="demo@testing.com"
             />
             <BaseInput
               label="Password"
@@ -83,6 +86,7 @@ const LoginForm = () => {
               type="password"
               {...register('password')}
               errors={passwordErrors}
+              value="abc123!@#"
             />
             <button type="submit">Sign In</button>
           </form>

@@ -53,10 +53,22 @@
     }
   }
 
-  & .sign-in {
+  & .sign-in,
+  .signed-in {
     margin-left: 1rem;
     display: flex;
     align-items: center;
+    position: relative;
+
+    & .icon {
+      font-size: 1.6rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    & .sign-out {
+      margin-left: 1rem;
+    }
 
     & button {
       display: flex;

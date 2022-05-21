@@ -4,6 +4,7 @@ const initialState = {
   addressList: [],
   showSignInForm: false,
   showSignUpForm: false,
+  signedIn: false,
 };
 
 const userSlice = createSlice({
@@ -26,6 +27,9 @@ const userSlice = createSlice({
     },
     SET_SHOW_SIGN_UP(state, action) {
       state.showSignUpForm = action.payload;
+    },
+    SET_SIGNED_IN(state, action) {
+      state.signedIn = action.payload;
     },
   },
 });
