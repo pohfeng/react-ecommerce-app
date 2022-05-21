@@ -17,13 +17,21 @@ export const fetchShopData = () => {
     const q = query(collection(db, 'shop_items'));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      shopData.push({ id: doc.id, ...doc.data() });
+      shopData.push({
+        id: doc.id,
+        ...doc.data(),
+      });
     });
+
     console.log(shopData);
 
     await dispatch(shopActions.SET_ALL_ITEMS(shopData));
     await dispatch(shopActions.FILTER_ITEMS({}));
     dispatch(shopActions.SORT_ITEMS({ sortBy: 'name', sortOrder: 'asc' }));
+
+    // DUMMY_DATA.forEach(async (data) => {
+    //   const docRef = await addDoc(collection(db, 'shop_items'), data);
+    // });
   };
 };
 

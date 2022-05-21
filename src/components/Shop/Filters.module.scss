@@ -8,10 +8,66 @@
     margin: 1rem 0 1.5rem;
   }
 
-  & .filtersContainers {
+  & .filter-box {
     padding: 1rem;
     margin: 0 1rem 0 0;
     background-color: $secondary-color;
     color: $text-color;
+
+    & > * .title {
+      margin-top: 2rem;
+    }
+
+    & .apply-filter-button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: $text-color;
+      background-color: $primary-color;
+      border: 0;
+      border-radius: 5px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      margin-top: 1rem;
+      transition: color 0.3s ease-in-out;
+      transition: scale 1s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 8px 25px -8px #7367f0;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    & .reset-button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: $text-color;
+      background-color: transparent;
+      border: 1px solid rgb(211, 5, 5);
+      border-radius: 5px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      margin-top: 1rem;
+      transition: color 0.3s ease-in-out;
+      transition: scale 1s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 8px 25px -8px rgb(211, 5, 5);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
   }
 }

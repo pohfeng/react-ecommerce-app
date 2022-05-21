@@ -1,3 +1,5 @@
+@import 'sassStyles/variables';
+
 .Login,
 .Signup {
   padding: 2rem;
@@ -43,13 +45,13 @@
   }
 
   & .redirect-text {
-    color: #d25fff;
+    color: rgb(23, 193, 232);
     font-weight: 700;
     text-decoration: none;
     user-select: none;
     cursor: pointer;
     &:hover {
-      color: #ff4ed4;
+      color: cyan;
     }
   }
 }
