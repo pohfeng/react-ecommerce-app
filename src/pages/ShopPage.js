@@ -64,12 +64,10 @@ const ShopPage = () => {
           {/* <ItemCard rating={4} price={449.99} name="iphone" description="a phone" /> */}
         </div>
       </div>
-      <div>
-        <PageNoSelector
-          totalPages={filteredItems / 9}
-          onChange={pageChangeHandler}
-        />
-      </div>
+      <PageNoSelector
+        totalPages={filteredItems / 9}
+        onChange={pageChangeHandler}
+      />
     </Fragment>
   );
 };
