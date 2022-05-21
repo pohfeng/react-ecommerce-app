@@ -31,10 +31,8 @@ const ShopPage = () => {
     setCurrentPage(newPage);
   };
 
-  const filterHandler = async (event) => {
-    const filterValue = event.target.value;
-
-    await dispatch(shopActions.FILTER_ITEMS({ name: filterValue }));
+  const filterHandler = async () => {
+    dispatch(shopActions.FILTER_ITEMS());
     dispatch(
       shopActions.SORT_ITEMS({ sortBy: sortInfo[0], sortOrder: sortInfo[1] })
     );
@@ -52,7 +50,7 @@ const ShopPage = () => {
         <b>Shop</b>
       </div>
       <div className={classes.shopPage}>
-        <Filters />
+        <Filters onFilter={filterHandler} />
         <div className={classes.itemList}>
           <ShopListHeader
             onSortSelect={sortHandler}
@@ -60,8 +58,6 @@ const ShopPage = () => {
           />
           <SearchBar onFilter={filterHandler} />
           <ItemList viewMode={viewMode} />
-          {/* <span>ABC</span> */}
-          {/* <ItemCard rating={4} price={449.99} name="iphone" description="a phone" /> */}
         </div>
       </div>
       <PageNoSelector
