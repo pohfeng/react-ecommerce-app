@@ -1,3 +1,6 @@
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { auth } from 'firebase.js';
+
 import { userActions } from './user-slice';
 
 export const fetchUserAddress = () => {
@@ -23,5 +26,44 @@ export const fetchUserAddress = () => {
       },
     ];
     dispatch(userActions.SET_ADDRESS_LIST(DUMMY_DATA));
+  };
+};
+
+export const signIn = ({ email, password }) => {
+  return async (dispatch) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        localStorage.setItem('token', user.accessToken);
+        dispatch(userActions.SET_SIGNED_IN(true));
+      })
+      .catch((error) => {
+        window.alert('Invalid Credential !');
+        console.log('error: ', error);
+      });
+  };
+};
+
+export const signUp = () => {
+  return async (dispatch) => {
+    localStorage.setItem('token', 'fake-token');
+    dispatch(userActions.SET_SIGNED_IN(true));
+    // createUserWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     const user = userCredential.user;
+    //     console.log('signup: ', user);
+    //     dispatch(userActions.SET_SIGNED_IN(true));
+    //   })
+    //   .catch((error) => {
+    //     console.log('error: ', error);
+    //   });
+  };
+};
+
+export const logOut = () => {
+  return async (dispatch) => {
+    signOut(auth);
+    localStorage.removeItem('token');
+    dispatch(userActions.SET_SIGNED_IN(false));
   };
 };

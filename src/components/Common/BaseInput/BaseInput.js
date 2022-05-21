@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './BaseInput.module.scss';
 
 const BaseInput = React.forwardRef((props, ref) => {
-  const { id, type, name, label, onChange, onBlur, errors } = props;
+  const { id, type, name, label, onChange, onBlur, errors, value = '' } = props;
 
   return (
     <div className={classes['form-control']}>
@@ -17,7 +17,9 @@ const BaseInput = React.forwardRef((props, ref) => {
         onChange={onChange}
         onBlur={onBlur}
         className={errors?.message ? `${classes.error}` : ''}
+        value={value}
       />
+
       <div className={classes.error}>{errors?.message}</div>
     </div>
   );

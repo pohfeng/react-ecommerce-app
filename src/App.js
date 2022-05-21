@@ -2,6 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import { FiShoppingCart } from 'react-icons/fi';
+import { BsPersonCircle } from 'react-icons/bs';
 
 import ShopPage from './pages/ShopPage';
 import ProductPage from 'pages/ProductPage';
@@ -14,16 +15,22 @@ import './App.scss';
 
 import { fetchShopData } from 'store/shop-actions';
 import { fetchCartItems } from 'store/cart-actions';
-import { fetchUserAddress } from 'store/user-actions';
+import { fetchUserAddress, logOut } from 'store/user-actions';
 import { userActions } from 'store/user-slice';
 
 function App() {
   const dispatch = useDispatch();
+
   const showSignInForm = useSelector((state) => state.user.showSignInForm);
   const showSignUpForm = useSelector((state) => state.user.showSignUpForm);
+  const signedIn = useSelector((state) => state.user.signedIn);
   const cartItemCount = useSelector((state) => state.cart.items.length);
 
   useEffect(() => {
+    const initialToken = localStorage.getItem('token');
+    if (initialToken) {
+      dispatch(userActions.SET_SIGNED_IN(true));
+    }
     dispatch(fetchShopData({}));
     dispatch(fetchCartItems());
     dispatch(fetchUserAddress());
@@ -32,6 +39,25 @@ function App() {
   const openModalHandler = () => {
     dispatch(userActions.SET_SHOW_SIGN_IN(true));
   };
+
+  const signOutHandler = () => {
+    dispatch(logOut());
+  };
+
+  const signInBtn = (
+    <div className="sign-in">
+      <button onClick={openModalHandler}>Sign In</button>
+    </div>
+  );
+
+  const signedInIcon = (
+    <div className="signed-in">
+      <BsPersonCircle className="icon" />
+      <button className="sign-out" onClick={signOutHandler}>
+        Sign Out
+      </button>
+    </div>
+  );
 
   return (
     <Fragment>
@@ -43,11 +69,8 @@ function App() {
           <FiShoppingCart />
           <span className="item-count">{cartItemCount}</span>
         </Link>
-        <div className="sign-in">
-          <button to="/checkout" onClick={openModalHandler}>
-            Sign In
-          </button>
-        </div>
+        {!signedIn && signInBtn}
+        {signedIn && signedInIcon}
       </nav>
       {showSignInForm && <SignInForm />}
       {showSignUpForm && <SignUpForm />}
