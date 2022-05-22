@@ -1,6 +1,35 @@
 @import 'sassStyles/variables.scss';
 
-.filtersContainer {
+@media screen and (max-width: 1024px) {
+  .showSideFilter {
+    transform: translateX(0);
+  }
+
+  .filtersContainer {
+    transform: translateX(-320px);
+  }
+
+  .filtersContainer,
+  .showSideFilter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    height: 100%;
+    transition: all 0.3s ease-out;
+
+    & .filter-box {
+      height: 100%;
+    }
+
+    & .title {
+      display: none;
+    }
+  }
+}
+
+.filtersContainer,
+.showSideFilter {
   color: $text-color;
   float: left;
 

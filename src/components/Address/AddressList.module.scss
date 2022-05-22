@@ -1,6 +1,17 @@
+@media (max-width: 1200px) {
+  .address-list {
+    margin: 2rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .address-list {
+    margin: 2rem 2rem 2rem 1rem;
+  }
+}
+
 .address-list {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  margin: 2rem 2rem 2rem 1rem;
 }

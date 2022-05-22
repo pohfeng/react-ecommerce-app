@@ -21,7 +21,7 @@ const CartSummary = () => {
   };
 
   return (
-    <div>
+    <div className={classes['summary-container']}>
       <Card className={classes['cart-summary']}>
         <div>
           <strong>Summary</strong>

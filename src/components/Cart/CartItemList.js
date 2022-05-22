@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import CartItem from './CartItem/CartItem';
 
-// import classes from './CartItemList.module.scss';
+import classes from './CartItemList.module.scss';
 
 // import { fetchCartItems } from 'store/cart-actions';
 
@@ -18,7 +18,7 @@ const CartList = () => {
     return <CartItem key={item.id} {...item} />;
   });
 
-  return <div>{cartItemList}</div>;
+  return <div className={classes['item-list']}>{cartItemList}</div>;
 };
 
 export default CartList;

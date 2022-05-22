@@ -10,7 +10,7 @@ const valuetext = (value) => {
   return `RM${value}`;
 };
 
-const minDistance = 1000;
+const minDistance = 2000;
 
 const theme = createTheme({
   palette: {
@@ -60,7 +60,7 @@ const PriceSlider = () => {
       <ThemeProvider theme={theme}>
         <Box
           sx={{
-            width: 300,
+            width: 240,
             padding: 3,
             paddingTop: 5,
             paddingBottom: 2,

@@ -1,5 +1,27 @@
 @import 'sassStyles/variables.scss';
 
+@media (max-width: 1024px) {
+  .header {
+    & h5 {
+      display: none;
+    }
+
+    & .hidden-filter-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .header {
+    & .hidden-filter-btn {
+      display: none;
+    }
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -8,7 +30,13 @@
   & h5 {
     color: $text-color;
     margin: 0;
-    margin-right: auto;
+  }
+
+  & .hidden-filter-btn {
+    color: $text-color;
+
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   & .itemSort {
@@ -17,6 +45,7 @@
     border: 1px solid $primary-color;
     border-radius: 5px;
     background-color: transparent;
+    margin-left: auto;
     cursor: pointer;
   }
 
