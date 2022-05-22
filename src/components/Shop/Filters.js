@@ -20,8 +20,12 @@ const Filters = (props) => {
     props.onFilter();
   };
 
+  const containerClasses = props.showSideFilter
+    ? `${classes.showSideFilter}`
+    : `${classes.filtersContainer}`;
+
   return (
-    <div className={classes.filtersContainer}>
+    <div className={containerClasses}>
       <h5 className={classes.title}>Filters</h5>
       <Card className={classes['filter-box']}>
         <PriceSlider />

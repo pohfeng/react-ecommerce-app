@@ -1,10 +1,45 @@
 @import 'sassStyles/variables.scss';
 
+@media (max-width: 768px) {
+  .cart-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    & .item-img {
+      padding-bottom: 0;
+
+      & img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    & .item-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    & .item-options {
+      border-left: 0;
+    }
+  }
+}
+@media (min-width: 769px) {
+  .cart-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    & .item-options {
+      border-left: 1px solid rgba($text-color, 0.4);
+    }
+  }
+}
+
 .cart-item {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   background-color: $secondary-color;
-  margin: 2rem;
+  margin: 2rem 0;
   color: $text-color;
   align-items: center;
   transition: all 0.3s ease-in-out;
@@ -86,7 +121,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 1px solid rgba($text-color, 0.4);
+
     height: 100%;
 
     & > * {

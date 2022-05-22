@@ -1,9 +1,21 @@
 @import 'sassStyles/variables';
 
+@media (max-width: 1200px) {
+  .summary-container {
+    margin: 2rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .summary-container {
+    margin: 2rem;
+    margin-left: 0;
+  }
+}
+
 .cart-summary {
   background-color: $secondary-color;
   color: $text-color;
-  margin: 2rem 2rem 2rem 0rem;
   padding: 2rem;
 
   & > * {

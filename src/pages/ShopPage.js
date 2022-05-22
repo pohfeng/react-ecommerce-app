@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 import SearchBar from 'components/Shop/SearchBar';
 import Filters from 'components/Shop/Filters';
@@ -15,6 +16,7 @@ const ShopPage = () => {
   const dispatch = useDispatch();
   const [viewMode, setViewMode] = useState('grid');
   const [currentPage, setCurrentPage] = useState(1);
+  const [showSideFilter, setShowSideFilter] = useState(false);
   const filteredItems = useSelector((state) => state.shop.filteredItems.length);
   const [sortInfo, setSortInfo] = useState(['name', 'asc']);
 
@@ -32,6 +34,7 @@ const ShopPage = () => {
   };
 
   const filterHandler = async () => {
+    setShowSideFilter(false);
     dispatch(shopActions.FILTER_ITEMS());
     dispatch(
       shopActions.SORT_ITEMS({ sortBy: sortInfo[0], sortOrder: sortInfo[1] })
@@ -44,17 +47,37 @@ const ShopPage = () => {
     dispatch(shopActions.SORT_ITEMS({ sortBy: info[0], sortOrder: info[1] }));
   };
 
+  const openSideFilterHandler = () => {
+    setShowSideFilter(true);
+  };
+
+  const backdropCloseHandler = () => {
+    setShowSideFilter(false);
+  };
+
+  const Backdrop = (props) => {
+    return <div className={classes.backdrop} onClick={props.onClose} />;
+  };
+
+  const portalElement = document.getElementById('overlays');
+
   return (
     <Fragment>
+      {showSideFilter &&
+        ReactDOM.createPortal(
+          <Backdrop onClose={backdropCloseHandler} />,
+          portalElement
+        )}
       <div className="page-title">
         <b>Shop</b>
       </div>
       <div className={classes.shopPage}>
-        <Filters onFilter={filterHandler} />
+        <Filters onFilter={filterHandler} showSideFilter={showSideFilter} />
         <div className={classes.itemList}>
           <ShopListHeader
             onSortSelect={sortHandler}
             onViewModeChange={viewModeChangeHandler}
+            onOpenSideFilter={openSideFilterHandler}
           />
           <SearchBar onFilter={filterHandler} />
           <ItemList viewMode={viewMode} />

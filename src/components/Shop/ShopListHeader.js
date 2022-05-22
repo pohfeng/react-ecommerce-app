@@ -1,4 +1,5 @@
 import { MdOutlineGridView, MdFormatListBulleted } from 'react-icons/md';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 import classes from './ShopListHeader.module.scss';
 
@@ -14,6 +15,12 @@ const ShopHeader = (props) => {
   return (
     <div className={classes.header}>
       <h5>27 Result Found</h5>
+      <div
+        className={classes['hidden-filter-btn']}
+        onClick={props.onOpenSideFilter}
+      >
+        <GiHamburgerMenu />
+      </div>
       <select
         name="item-sort-selector"
         className={classes.itemSort}

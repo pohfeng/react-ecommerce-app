@@ -67,7 +67,7 @@ const NewAddressForm = () => {
         <div>
           <small>Save and use a new address for delivery</small>
         </div>
-        <form onSubmit={handleSubmit(submitHandler)}>
+        <form id="address-form" onSubmit={handleSubmit(submitHandler)}>
           <BaseInput
             label="Name"
             id="name"
@@ -110,8 +110,14 @@ const NewAddressForm = () => {
             {...register('phone_no')}
             errors={phoneNoErrors}
           />
-          <button type="submit">Save and Deliver Here</button>
         </form>
+        <button
+          type="submit"
+          form="address-form"
+          className={classes['submit-btn']}
+        >
+          Save and Deliver Here
+        </button>
       </Card>
     </div>
   );
