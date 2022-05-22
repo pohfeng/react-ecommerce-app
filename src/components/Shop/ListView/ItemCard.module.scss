@@ -1,9 +1,41 @@
 @import 'sassStyles/variables';
 
+@media (max-width: 600px) {
+  .itemCard {
+    grid-template-columns: 1fr;
+    & .itemImg {
+      padding: 2rem;
+      cursor: pointer;
+      & img {
+        width: 100%;
+      }
+    }
+
+    & .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      & .item-description {
+        padding: 0 1rem;
+
+        color: $text-color;
+      }
+    }
+  }
+}
+
+@media (min-width: 601px) {
+  .itemCard {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
 .itemCard {
   background-color: $secondary-color;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+
   align-items: center;
   overflow: hidden;
   transition: all 0.3s ease-out;
@@ -50,6 +82,7 @@
       font-size: 0.9rem;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-align: justify;
       color: $text-color;
     }
   }
