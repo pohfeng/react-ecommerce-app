@@ -1,5 +1,10 @@
 @import 'sassStyles/variables';
 
+.main-content {
+  margin: auto;
+  max-width: 80rem;
+}
+
 .nav-bar {
   // background-color: $secondary-color;
   background-color: black;
