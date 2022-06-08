@@ -14,6 +14,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// if (process.env.NODE_ENV === 'development') {
+//   window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+// }
 initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(
     process.env.REACT_APP_FIREBASE_RECAPTCHA_V3_SITE_KEY

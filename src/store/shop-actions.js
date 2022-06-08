@@ -43,7 +43,7 @@ export const fetchDataDetails = (id) => {
     //   price: 1.74,
     //   rating: 1,
     //   available_unit: 8,
-    //   image_url: '/images/iphone-12-64gb(3399).png',
+    //   image_url: '/images/iphone-12-64gb(3399).webp',
     // };
 
     dispatch(shopActions.SET_ITEM_DETAILS({ id, ...docSnap.data() }));

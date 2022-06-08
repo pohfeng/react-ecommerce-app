@@ -74,22 +74,24 @@ function App() {
       </nav>
       {showSignInForm && <SignInForm />}
       {showSignUpForm && <SignUpForm />}
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/shop" />
-        </Route>
-        <Route path="/shop">
-          <ShopPage />
-        </Route>
-        <Route path="/product-details/:id">
-          <ProductPage />
-        </Route>
-        <Route path="/checkout">
-          <CheckoutPage />
-        </Route>
-        {/* <Route path="/wish-list"></Route>
+      <main className="main-content">
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/shop" />
+          </Route>
+          <Route path="/shop">
+            <ShopPage />
+          </Route>
+          <Route path="/product-details/:id">
+            <ProductPage />
+          </Route>
+          <Route path="/checkout">
+            <CheckoutPage />
+          </Route>
+          {/* <Route path="/wish-list"></Route>
       <Route path="/checkout"></Route> */}
-      </Switch>
+        </Switch>
+      </main>
     </Fragment>
   );
 }

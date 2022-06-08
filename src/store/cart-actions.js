@@ -8,7 +8,7 @@ export const fetchCartItems = () => {
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         id: '6Kj7475OLMDGkx0sJawC',
-        image_url: '/images/magic-touchpad.png',
+        image_url: '/images/magic-touchpad.webp',
         name: 'Magic Touchpad',
         price: 489,
         rating: 4,
@@ -21,7 +21,7 @@ export const fetchCartItems = () => {
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         id: 'HQjO7E19TxkXFyrY7e0G',
-        image_url: '/images/apple-watch-se.png',
+        image_url: '/images/apple-watch-se.webp',
         name: 'Apple Watch SE',
         price: 1199,
         rating: 3,
@@ -34,7 +34,7 @@ export const fetchCartItems = () => {
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         id: 'QFYBGD2keFz4twcewENM',
-        image_url: '/images/beats-studio-buds.png',
+        image_url: '/images/beats-studio-buds.webp',
         name: 'Beats Studio Buds (True Wireless Noise Cancelling Earphones)',
         price: 629,
         rating: 4,
@@ -47,7 +47,7 @@ export const fetchCartItems = () => {
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         id: 'X3uOpsKhM3qTvMEVoE0d',
-        image_url: '/images/iphone-13-pro.png',
+        image_url: '/images/iphone-13-pro.webp',
         name: 'iPhone 13 Pro (512Gb)',
         price: 6299,
         rating: 4,
@@ -60,7 +60,7 @@ export const fetchCartItems = () => {
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         id: 'neySeaonau708qJlZTIO',
-        image_url: '/images/ipad-mini.png',
+        image_url: '/images/ipad-mini.webp',
         name: 'iPad Mini (256GB)',
         price: 2299,
         rating: 3,
