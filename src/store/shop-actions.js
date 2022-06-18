@@ -24,8 +24,11 @@ export const fetchShopData = () => {
     });
 
     await dispatch(shopActions.SET_ALL_ITEMS(shopData));
-    await dispatch(shopActions.FILTER_ITEMS({}));
-    dispatch(shopActions.SORT_ITEMS({ sortBy: 'name', sortOrder: 'asc' }));
+    await dispatch(shopActions.FILTER_ITEMS());
+    await dispatch(
+      shopActions.SORT_ITEMS({ sortBy: 'name', sortOrder: 'asc' })
+    );
+    dispatch(shopActions.SET_READY(true));
   };
 };
 
@@ -46,6 +49,7 @@ export const fetchDataDetails = (id) => {
     //   image_url: '/images/iphone-12-64gb(3399).webp',
     // };
 
+    console.log('data: ', { id, ...docSnap.data() });
     dispatch(shopActions.SET_ITEM_DETAILS({ id, ...docSnap.data() }));
   };
 };

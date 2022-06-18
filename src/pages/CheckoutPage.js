@@ -83,20 +83,18 @@ const CheckoutPage = () => {
       </div>
 
       <div className={classes['checkout-page']}>
-        <Switch>
-          <Route path="/checkout" exact>
-            <CartList />
-            <CartSummary />
-          </Route>
-          <Route path="/checkout/address" exact>
-            <NewAddressForm />
-            <AddressList />
-          </Route>
-          <Route path="/checkout/address/payment" exact>
-            <PaymentOptions />
-            <PriceDetails />
-          </Route>
-        </Switch>
+        <Route path="/checkout" exact>
+          <CartList />
+          <CartSummary />
+        </Route>
+        <Route path="/checkout/address" exact>
+          <NewAddressForm />
+          <AddressList />
+        </Route>
+        <Route path="/checkout/address/payment" exact>
+          <PaymentOptions />
+          <PriceDetails />
+        </Route>
       </div>
     </Fragment>
   );

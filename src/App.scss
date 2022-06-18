@@ -5,6 +5,28 @@
   max-width: 80rem;
 }
 
+.fade-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.fade-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 1s, transform 500ms;
+}
+
 .nav-bar {
   // background-color: $secondary-color;
   background-color: black;

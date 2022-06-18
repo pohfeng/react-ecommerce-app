@@ -19,6 +19,7 @@ const ShopPage = () => {
   const [showSideFilter, setShowSideFilter] = useState(false);
   const filteredItems = useSelector((state) => state.shop.filteredItems.length);
   const [sortInfo, setSortInfo] = useState(['name', 'asc']);
+  const isReady = useSelector((state) => state.shop.isReady);
 
   useEffect(() => {
     const offset = (currentPage - 1) * 9;
@@ -71,22 +72,26 @@ const ShopPage = () => {
       <div className="page-title">
         <b>Shop</b>
       </div>
-      <div className={classes.shopPage}>
-        <Filters onFilter={filterHandler} showSideFilter={showSideFilter} />
-        <div className={classes.itemList}>
-          <ShopListHeader
-            onSortSelect={sortHandler}
-            onViewModeChange={viewModeChangeHandler}
-            onOpenSideFilter={openSideFilterHandler}
+      {isReady && (
+        <Fragment>
+          <div className={classes.shopPage}>
+            <Filters onFilter={filterHandler} showSideFilter={showSideFilter} />
+            <div className={classes.itemList}>
+              <ShopListHeader
+                onSortSelect={sortHandler}
+                onViewModeChange={viewModeChangeHandler}
+                onOpenSideFilter={openSideFilterHandler}
+              />
+              <SearchBar onFilter={filterHandler} />
+              <ItemList viewMode={viewMode} />
+            </div>
+          </div>
+          <PageNoSelector
+            totalPages={filteredItems / 9}
+            onChange={pageChangeHandler}
           />
-          <SearchBar onFilter={filterHandler} />
-          <ItemList viewMode={viewMode} />
-        </div>
-      </div>
-      <PageNoSelector
-        totalPages={filteredItems / 9}
-        onChange={pageChangeHandler}
-      />
+        </Fragment>
+      )}
     </Fragment>
   );
 };

@@ -1,6 +1,7 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { Route, Link, Redirect, useLocation } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsPersonCircle } from 'react-icons/bs';
 
@@ -18,8 +19,17 @@ import { fetchCartItems } from 'store/cart-actions';
 import { fetchUserAddress, logOut } from 'store/user-actions';
 import { userActions } from 'store/user-slice';
 
+const animationTiming = {
+  enter: 1000,
+  exit: 500,
+};
+
 function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const shopRef = useRef(null);
+  const detailsRef = useRef(null);
+  const checkoutRef = useRef(null);
 
   const showSignInForm = useSelector((state) => state.user.showSignInForm);
   const showSignUpForm = useSelector((state) => state.user.showSignUpForm);
@@ -44,6 +54,22 @@ function App() {
     dispatch(logOut());
   };
 
+  const routes = [
+    { ref: shopRef, path: '/shop', name: 'ShopPage', Component: ShopPage },
+    {
+      ref: detailsRef,
+      path: '/product-details/:id',
+      name: 'ProductPage',
+      Component: ProductPage,
+    },
+    {
+      ref: checkoutRef,
+      path: '/checkout',
+      name: 'CheckoutPage',
+      Component: CheckoutPage,
+    },
+  ];
+
   const signInBtn = (
     <div className="sign-in">
       <button onClick={openModalHandler}>Sign In</button>
@@ -58,6 +84,8 @@ function App() {
       </button>
     </div>
   );
+
+  console.log('location: ', location);
 
   return (
     <Fragment>
@@ -75,22 +103,26 @@ function App() {
       {showSignInForm && <SignInForm />}
       {showSignUpForm && <SignUpForm />}
       <main className="main-content">
-        <Switch>
-          <Route path="/" exact>
-            <Redirect to="/shop" />
+        <Route path="/" exact>
+          <Redirect to="/shop" />
+        </Route>
+        {routes.map(({ path, Component, ref }) => (
+          <Route key={path} path={path}>
+            {({ match }) => (
+              <CSSTransition
+                nodeRef={ref}
+                in={match != null}
+                timeout={animationTiming}
+                classNames="fade"
+                unmountOnExit
+              >
+                <div ref={ref} className="fade">
+                  <Component />
+                </div>
+              </CSSTransition>
+            )}
           </Route>
-          <Route path="/shop">
-            <ShopPage />
-          </Route>
-          <Route path="/product-details/:id">
-            <ProductPage />
-          </Route>
-          <Route path="/checkout">
-            <CheckoutPage />
-          </Route>
-          {/* <Route path="/wish-list"></Route>
-      <Route path="/checkout"></Route> */}
-        </Switch>
+        ))}
       </main>
     </Fragment>
   );

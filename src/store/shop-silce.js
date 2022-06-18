@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  isReady: false,
   allItems: [],
   filteredItems: [],
   items: [],
@@ -34,6 +35,7 @@ const shopSlice = createSlice({
       state.allItems = action.payload;
     },
     SET_ITEM_DETAILS(state, action) {
+      console.log(action);
       state.itemDetails = action.payload;
     },
     SET_RELATED_PRODUCTS(state, action) {
@@ -48,6 +50,9 @@ const shopSlice = createSlice({
       } else if (type === 'categories' || type === 'brands') {
         state.filters[type][field] = value;
       }
+    },
+    SET_READY(state, action) {
+      state.isReady = action.payload;
     },
     RESET_FILTER(state) {
       state.filters = { ...initialState.filters };
