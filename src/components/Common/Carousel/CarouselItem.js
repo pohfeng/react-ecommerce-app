@@ -28,7 +28,7 @@ const CarouselItem = ({ itemDetails, itemWidth }) => {
         onClick={clickHandler}
       />
       <Rating rating={itemDetails.rating} />
-      <div className={classes['item-price']}>RM{itemDetails.price}</div>
+      <div className={classes['item-price']}>RM {itemDetails.price}</div>
     </div>
   );
 };

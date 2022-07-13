@@ -13,6 +13,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+window.self.FIREBASE_APPCHECK_DEBUG_TOKEN =
+  process.env.REACT_APP_CHECK_DEBUG_TOKEN_FROM_CI;
 const app = initializeApp(firebaseConfig);
 initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(
